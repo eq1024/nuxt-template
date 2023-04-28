@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "@antfu"
+  ],
+  "rules": {
+    "no-console": "off"
+  }
+  //忽略目录或文件 !号表示 强制包含
+  // "ignorePatterns":[
+  //   "!public"
+  // ]
+}
