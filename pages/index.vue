@@ -20,13 +20,13 @@ definePageMeta({
 /**
  * 在服务端的请求,渲染进html后一并返回
  */
-const { data } = await useFetch<post>('http://jsonplaceholder.typicode.com/posts/5')
+const { data } = await useFetch<post>('https://jsonplaceholder.typicode.com/posts/5')
 post1.value = JSON.stringify(data.value?.body) || ''
 /**
  * 在客户的请求
  */
 function getAsyncData() {
-  useRequest<post>('http://jsonplaceholder.typicode.com/posts/1', { method: 'GET' }).then((res) => {
+  useRequest<post>('https://jsonplaceholder.typicode.com/posts/1', { method: 'GET' }).then((res) => {
     post2.value = JSON.stringify(data.value?.body) || ''
   })
 }
