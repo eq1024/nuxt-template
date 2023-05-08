@@ -11,7 +11,6 @@
   // setBodyFontSize()
 
   function setRemUnit() {
-    console.log('是是是色二群')
     if (docEl.clientWidth >= 1280) {
       const rem = docEl.clientWidth / 19.2
       docEl.style.fontSize = `${rem}px`

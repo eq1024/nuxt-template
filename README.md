@@ -1,3 +1,4 @@
+![展示](https://pic-1300230199.cos.ap-guangzhou.myqcloud.com/NewPic/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230508175551.png)
 # SSR项目模板
 > 适用于期望SEO友好的，内容主导型网站，如:公司官网、外贸官网、个人博客等
 ### 技术站
@@ -5,7 +6,7 @@ NUXT3 + vite4 + pinia + typescript +eslint
 
 ### 目录结构
 
-![image-20230423105223476](https://pic-1300230199.cos.ap-guangzhou.myqcloud.com/2023/202304231052644.png)
+![目录](https://pic-1300230199.cos.ap-guangzhou.myqcloud.com/2023/202304231052644.png)
 
 ### 使用
 
@@ -162,9 +163,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
 非`global`文件需要在组件中指定
 
 ```ts
-
 definePageMeta({
-  middleware: ['root-middle'],  //指定执行
+  middleware: ['root-middle'], // 指定执行
 })
 ```
 

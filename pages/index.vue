@@ -1,15 +1,18 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 // const router = useRouter()
 const post1 = ref('')
 const post2 = ref('')
-
+const { userName } = storeToRefs(useUserStore())
 interface post {
   userId: string
   id: string
   title: string
   body: string
 }
-
+useHead({
+  title: userName,
+})
 definePageMeta({
   middleware: ['root-middle'],
 })
@@ -41,20 +44,47 @@ onMounted(() => {
 
 <template>
   <div style="font-size: .2rem;">
-    下面的异步请求内容是在服务端完成的
-    <div>
-      <code>{{ post1 }}</code>
+    <div class="fromSiv">
+      <div style="padding-bottom: 20px;">
+        下面的异步请求内容是在服务端完成的
+      </div>
+      <div>{{ post1 }}</div>
     </div>
-
-    <div>
-      点击<button @click="getAsyncData">
-        按钮
-      </button>发送客户端的异步请求
+    <div class="fromSiv">
+      <div style="padding-bottom: 20px;">
+        点击<button @click="getAsyncData">
+          按钮
+        </button>发送客户端的异步请求
+      </div>
+      <div>{{ post2 || '' }}</div>
     </div>
-    <div>
-      <code>{{ post2 || '' }}</code>
+    <div class="fromSiv">
+      <div>env的使用</div>
+      <div>当前NUXT_BASE_ROOT为:</div>
+      <div style="background-color: bisque;">
+        {{ NUXT_BASE_ROOT }}
+      </div>
     </div>
-    <div>env的使用</div>
-    <div>当前NUXT_BASE_ROOT为: {{ NUXT_BASE_ROOT }}</div>
+    <div class="fromSiv">
+      <div>
+        <input id="" v-model="userName" style="width: 600px;height: 50px; line-height: 50px;" type="text" name="">
+      </div>
+    </div>
+    <div class="fromSiv">
+      打开控制台,方便查看钩子函数的执行情况
+    </div>
   </div>
 </template>
+
+<style lang="scss">
+.fromSiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dashed #222;
+  border-radius: 5px;
+  flex: 0 0 50vw;
+  padding: 20px;
+  margin:10px 100px;
+}
+</style>
