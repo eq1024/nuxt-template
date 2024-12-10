@@ -47,6 +47,7 @@ onMounted(() => {
     <div class="fromSiv">
       <div style="padding-bottom: 20px;">
         下面的异步请求内容是在服务端完成的
+        {{ $t('kk') }}
       </div>
       <div>{{ post1 }}</div>
     </div>

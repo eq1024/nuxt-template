@@ -1,20 +1,14 @@
 import { appDescription } from './constants/index'
+import { currentLocales } from './i18n'
 
 console.log('环境', process.env.NUXT_BASE_ROOT)
 
 export default defineNuxtConfig({
-  modules: [
-    '@vueuse/nuxt',
-    '@pinia/nuxt',
-    '@nuxtjs/color-mode',
-    'nuxt-lodash',
-  ],
+  modules: ['@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/color-mode', 'nuxt-lodash', '@nuxtjs/i18n'],
   experimental: {
     payloadExtraction: false,
-    inlineSSRStyles: false,
   },
   css: [
-
     '@/static/css/common.css',
     '@/static/css/normalize.css',
   ],
@@ -26,6 +20,23 @@ export default defineNuxtConfig({
     public: {
       BASE_URL: process.env.NUXT_BASE_ROOT,
       test: 'test value',
+    },
+  },
+  i18n: {
+    locales: currentLocales,
+    restructureDir: '',
+    langDir: 'locales/',
+    defaultLocale: 'en',
+    strategy: 'prefix_except_default',
+    vueI18n: './i18n.config.ts',
+    // 启用浏览器语言检测，以便在访问者第一次访问您的站点时自动将其重定向到首选语言环境。
+    detectBrowserLanguage: {
+      // 启动 cookie
+      useCookie: true,
+      // 用于存储当前语言环境的变量名
+      cookieKey: 'i18n_redirected',
+      // (建议用于改进SEO) -仅检测站点根路径(/)上的浏览器区域设置。只有当使用策略而不是“no_prefix”时才有效。
+      redirectOn: 'root',
     },
   },
   nitro: {
@@ -48,6 +59,13 @@ export default defineNuxtConfig({
         target: 'https://imgapi.cn/cos2.php?return=json',
         prependPath: true,
         changeOrigin: true,
+      },
+    },
+    routeRules: {
+      '/admin/**': {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
       },
     },
   },

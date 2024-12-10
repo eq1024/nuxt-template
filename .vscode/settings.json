@@ -1,3 +1,24 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "i18n-ally.localesPaths": [
+    "locales"
+  ],
+  "i18n-ally.sourceLanguage": "zh-cn", // 根据此语言文件翻译其他语言文件的变量和内容
+  "i18n-ally.displayLanguage": "zh-cn", // 显示语言
+  "i18n-ally.keystyle": "flat", // 翻译后变量格式 nested：嵌套式  flat:扁平式
+  "i18n-ally.preferredDelimiter": "_",
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.extract.keygenStrategy": "random", // 生成密钥路径的策略。可以slug，random或empty
+  "i18n-ally.extract.keygenStyle": "camelCase", // 翻译字段命名样式采用驼峰
+  "i18n-ally.enabledParsers": [
+    "json",
+    "js"
+  ],
+  "i18n-ally.keysInUse": [
+    "view.progress_submenu.translated_keys",
+    "view.progress_submenu.missing_keys",
+    "view.progress_submenu.empty_keys"
+  ],
+  "i18n-ally.theme.annotationMissingBorder": "#d37070",
+  "i18n-ally.theme.annotationMissing": "#d37070"
 }
