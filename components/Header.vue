@@ -18,14 +18,14 @@ function goRouter(path: string) {
     <div class="hd-left">
       <div class="hd-left-img" />
       <div class="hd-left-list">
-        <ul class="hd-left-list-ul">
+        <div class="hd-left-list-div">
           <li><a @click="goRouter('/')">首页(到英文,观察cookie发生被覆写)- router跳转(直接跳转,跳转到其他语言地址会导致i18n设置被覆写)</a></li>
           <li>
             <NuxtLinkLocale to="/about">
               兼顾I18n跳转(自动补全当前语言url)
             </NuxtLinkLocale>
           </li>
-        </ul>
+        </div>
         <div style="font-size: 14px;">
           <SwitchLocalePathLink locale="en">
             切换语言到en
@@ -56,7 +56,7 @@ function goRouter(path: string) {
   list-style-type: none;
 }
 .header {
-  height: 1.8rem;
+  height: 2.5rem;
   backdrop-filter: saturate(182%) blur(5px);
   background: rgba(255, 255, 255, .4);
   border-bottom: .02rem solid rgba(255, 255, 255, .7);
@@ -69,6 +69,7 @@ function goRouter(path: string) {
   top: 0;
   width: 100%;
   z-index: 9999;
+  font-size: 14px;
 }
 
 .header:hover {
@@ -80,7 +81,7 @@ function goRouter(path: string) {
 .header .hd-left {
   display: flex;
   align-items: center;
-  margin-left: 3.19rem;
+  margin-left: 1rem;
   height: .8rem;
 }
 
@@ -89,7 +90,6 @@ function goRouter(path: string) {
   height: .5rem;
   border-radius: 100%;
   margin-right: .46rem;
-  background-image: url('/asset/logo.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -98,12 +98,12 @@ function goRouter(path: string) {
   height: .8rem;
 }
 
-.header .hd-left-list-ul {
+.header .hd-left-list-div {
   display: flex;
   height: .8rem;
 }
 
-.header .hd-left-list-ul li {
+.header .hd-left-list-div li {
   height: .8rem;
   display: block;
   float: left;
@@ -117,17 +117,17 @@ function goRouter(path: string) {
   border-bottom: .04rem solid transparent;
 }
 
-.header .hd-left-list-ul li a {
+.header .hd-left-list-div li a {
   color: #222222;
   display: block;
   height: 100%;
 }
 
-.header .hd-left-list-ul li+li {
+.header .hd-left-list-div li+li {
   margin-left: .32rem;
 }
 
-.hd-left-list-ul>li:hover {
+.hd-left-list-div>li:hover {
   border-bottom: .04rem solid #006CFF;
   transition: .2s ease-in-out;
 }
@@ -221,7 +221,6 @@ function goRouter(path: string) {
 .header-swiper-bg {
   width: 100%;
   height: 100%;
-  background-image: url('/asset/2.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -229,7 +228,6 @@ function goRouter(path: string) {
 .header-swiper-bg1 {
   width: 100%;
   height: 100%;
-  background-image: url('/asset/1.png');
   background-repeat: no-repeat;
   background-size: cover;
 }

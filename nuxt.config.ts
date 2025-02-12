@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     payloadExtraction: false,
   },
   css: [
-    '@/static/css/common.css',
     '@/static/css/normalize.css',
   ],
   colorMode: {
