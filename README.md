@@ -19,8 +19,8 @@ git clone https://github.com/eq1024/nuxt-template.git
 2. 安装依赖
 
 ```shell
-yarn -v 	// 1.22.19
-node -v		//v16.20.0
+yarn -v 	// 1.22.22
+node -v		// v20.12.0
 yarn
 ```
 
