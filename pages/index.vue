@@ -45,6 +45,9 @@ onMounted(() => {
 <template>
   <div style="font-size: .2rem;">
     <div class="fromSiv">
+      <NuxtLinkLocale to="/admin">
+        Admin(客户端渲染CSR)
+      </NuxtLinkLocale>
       <div style="padding-bottom: 20px;">
         下面的异步请求内容是在服务端完成的
         {{ $t('kk') }}

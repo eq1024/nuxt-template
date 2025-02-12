@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { NuxtLinkLocale, SwitchLocalePathLink } from '#components'
+
 const router = useRouter()
 const color = useColorMode()
 function toggleDark() {
@@ -17,9 +19,24 @@ function goRouter(path: string) {
       <div class="hd-left-img" />
       <div class="hd-left-list">
         <ul class="hd-left-list-ul">
-          <li><a @click="goRouter('/')">首页</a></li>
-          <li><a @click="goRouter('about')">测试跳转</a></li>
+          <li><a @click="goRouter('/')">首页(到英文,观察cookie发生被覆写)- router跳转(直接跳转,跳转到其他语言地址会导致i18n设置被覆写)</a></li>
+          <li>
+            <NuxtLinkLocale to="/about">
+              兼顾I18n跳转(自动补全当前语言url)
+            </NuxtLinkLocale>
+          </li>
         </ul>
+        <div style="font-size: 14px;">
+          <SwitchLocalePathLink locale="en">
+            切换语言到en
+          </SwitchLocalePathLink>
+          <SwitchLocalePathLink locale="zh-cn">
+            切换语言到zh-cn
+          </SwitchLocalePathLink>
+          <SwitchLocalePathLink locale="de">
+            切换语言到de
+          </SwitchLocalePathLink>
+        </div>
       </div>
     </div>
     <div class="hd-right">
@@ -39,7 +56,7 @@ function goRouter(path: string) {
   list-style-type: none;
 }
 .header {
-  height: .8rem;
+  height: 1.8rem;
   backdrop-filter: saturate(182%) blur(5px);
   background: rgba(255, 255, 255, .4);
   border-bottom: .02rem solid rgba(255, 255, 255, .7);
