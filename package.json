@@ -1,5 +1,6 @@
 {
   "private": true,
+  "nodeVersion": ">=20.18.0",
   "packageManager": "yarn@1.22.22",
   "scripts": {
     "build": "nuxi build --dotenv .env.production",
