@@ -4,7 +4,7 @@ import { currentLocales } from './i18n'
 console.log('环境', process.env.NUXT_BASE_ROOT)
 
 export default defineNuxtConfig({
-  modules: ['@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/color-mode', 'nuxt-lodash', '@nuxtjs/i18n'],
+  modules: ['@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/color-mode', 'nuxt-lodash', '@nuxtjs/i18n', '@unocss/nuxt'],
   experimental: {
     payloadExtraction: false,
   },

@@ -54,7 +54,7 @@ onMounted(() => {
       </div>
       <div>{{ post1 }}</div>
     </div>
-    <div class="fromSiv">
+    <div class="fromSiv bg-red">
       <div style="padding-bottom: 20px;">
         点击<button @click="getAsyncData">
           按钮
