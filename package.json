@@ -1,7 +1,9 @@
 {
   "private": true,
-  "nodeVersion": ">=20.18.0",
-  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": "20.18.0",
+    "yarn": "1.22.22",
+  },
   "scripts": {
     "build": "nuxi build --dotenv .env.production",
     "dev": "nuxi dev --dotenv .env.dev",
