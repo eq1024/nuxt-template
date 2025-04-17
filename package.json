@@ -2,6 +2,10 @@
   "private": true,
   "nodeVersion": ">=20.18.0",
   "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": ">=20.18.0",
+    "yarn": "^1.22.22"
+  },
   "scripts": {
     "build": "nuxi build --dotenv .env.production",
     "dev": "nuxi dev --dotenv .env.dev",
@@ -11,6 +15,9 @@
     "generate": "nuxi generate",
     "start:generate": "npx serve .output/public"
   },
+  "dependencies": {
+    "three": "^0.174.0"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
     "@iconify-json/carbon": "^1.1.16",
@@ -18,6 +25,7 @@
     "@nuxtjs/i18n": "9.2.0",
     "@pinia/nuxt": "^0.4.7",
     "@types/node": "^18.15.11",
+    "@types/three": "^0.174.0",
     "@unocss/nuxt": "66.0.0",
     "@vueuse/nuxt": "^9.13.0",
     "eslint": "^8.36.0",

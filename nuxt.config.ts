@@ -5,22 +5,31 @@ console.log('环境', process.env.NUXT_BASE_ROOT)
 
 export default defineNuxtConfig({
   modules: ['@vueuse/nuxt', '@pinia/nuxt', '@nuxtjs/color-mode', 'nuxt-lodash', '@nuxtjs/i18n', '@unocss/nuxt'],
+
   experimental: {
     payloadExtraction: false,
   },
+
+  devtools: {
+    enabled: true,
+  },
+
   css: [
     '@/static/css/normalize.css',
   ],
+
   colorMode: {
     classSuffix: '',
     preference: 'light',
   },
+
   runtimeConfig: {
     public: {
       BASE_URL: process.env.NUXT_BASE_ROOT,
       test: 'test value',
     },
   },
+
   i18n: {
     locales: currentLocales,
     restructureDir: '',
@@ -38,6 +47,7 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
   },
+
   nitro: {
     esbuild: {
       options: {
@@ -68,6 +78,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   /**
    * redirect - Define server-side redirects.
 ssr - 禁用应用程序部分的服务器端渲染，并使用ssr: false使它们仅用于spa。
@@ -80,6 +91,7 @@ static and swr - static支持单个(按需)构建;swr启用静态构建，该构
     '/admin/**': { ssr: false },
     '/Admin/**': { ssr: false },
   },
+
   app: {
     head: {
       viewport: 'width=device-width,initial-scale=1',
@@ -108,4 +120,6 @@ static and swr - static支持单个(按需)构建;swr启用静态构建，该构
       ],
     },
   },
+
+  compatibilityDate: '2025-04-14',
 })

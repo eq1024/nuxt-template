@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 // const router = useRouter()
+
+const time1 = new Date().getTime()
+
 const post1 = ref('')
 const post2 = ref('')
 const { userName } = storeToRefs(useUserStore())
@@ -35,15 +38,25 @@ function getAsyncData() {
 const config = useRuntimeConfig()
 const NUXT_BASE_ROOT = config.public.BASE_URL
 
+const sphere: Ref<HTMLElement | null> = ref(null)
+const a = ref(500)
+
 onMounted(() => {
+  console.log('时间2:', new Date().getTime())
+
   const commonJS = document.createElement('script')
   commonJS.src = '/js/common.js'
   document.body.append(commonJS)
+  if (sphere !== null && sphere.value !== null) {
+    const { init } = useSphere(sphere as Ref<HTMLElement>, a, a)
+    init()
+  }
 })
 </script>
 
 <template>
   <div style="font-size: .2rem;">
+    <div>时间1 : {{ time1 }}</div>
     <div class="fromSiv">
       <NuxtLinkLocale to="/admin">
         Admin(客户端渲染CSR)
@@ -77,6 +90,7 @@ onMounted(() => {
     <div class="fromSiv">
       打开控制台,方便查看钩子函数的执行情况
     </div>
+    <div ref="sphere" class="fixed top-0 left-0 w-full h-full" />
   </div>
 </template>
 
